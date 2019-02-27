@@ -17,7 +17,7 @@ import com.google.android.exoplayer2.upstream.DataSource
 import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory
 
 
-class MainActivity : AppCompatActivity() {
+class PlayerActivity : AppCompatActivity() {
 
 
     // bandwidth meter to measure and estimate bandwidth
@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_player)
 
         playerView = findViewById(R.id.video_view)
     }
@@ -70,7 +70,9 @@ class MainActivity : AppCompatActivity() {
     private fun buildMediaSource(uri: Uri): MediaSource {
 
         val manifestDataSourceFactory : DataSource.Factory = DefaultHttpDataSourceFactory("ua")
-        return HlsMediaSource.Factory(manifestDataSourceFactory).createMediaSource(uri)
+        return HlsMediaSource.Factory(manifestDataSourceFactory)
+            .setAllowChunklessPreparation(true)
+            .createMediaSource(uri)
     }
 
     @SuppressLint("InlinedApi")

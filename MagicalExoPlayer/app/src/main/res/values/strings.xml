@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">MagicalExoPlayer</string>
-    <string name="media_url_hls">https://bitdash-a.akamaihd.net/content/MI201109210084_1/m3u8s/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.m3u8</string>
+    <!--<string name="media_url_hls">https://bitdash-a.akamaihd.net/content/MI201109210084_1/m3u8s/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.m3u8</string>-->
+    <string name="media_url_hls">https://player.vimeo.com/external/286837767.m3u8?s=42570e8c4a91b98cdec7e7bfdf0eccf54e700b69</string>
 
 </resources>
