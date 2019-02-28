@@ -48,7 +48,7 @@ class MyPlayerItemRecyclerViewAdapter(
 
         holder.playerView.setOnClickListener {
             Log.d("QWERTYIOP", "22222")
-            mListener?.onListFragmentInteraction(holder.playerView)
+            mListener!!.onListFragmentInteraction(holder.playerView)
         }
     }
 
@@ -64,13 +64,9 @@ class MyPlayerItemRecyclerViewAdapter(
 
     inner class ViewHolder(val mView: View) : RecyclerView.ViewHolder(mView) {
 
-        val playerView : PlayerView
+        val playerView : PlayerView = mView.findViewById(R.id.video_view)
         private val BANDWIDTH_METER = DefaultBandwidthMeter()
         private var player: SimpleExoPlayer? = null
-
-        init {
-            playerView = mView.findViewById(R.id.video_view)
-        }
 
 
         fun bindVideos(hslUrl : String){
@@ -86,7 +82,7 @@ class MyPlayerItemRecyclerViewAdapter(
             // let the factory create a player instance with default components
             player = ExoPlayerFactory.newSimpleInstance(
                 DefaultRenderersFactory(context),
-                DefaultTrackSelector(),
+                DefaultTrackSelector(adaptiveTrackSelectionFactory),
                 DefaultLoadControl()
             )
 
