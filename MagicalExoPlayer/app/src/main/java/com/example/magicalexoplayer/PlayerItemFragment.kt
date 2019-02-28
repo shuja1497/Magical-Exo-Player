@@ -25,7 +25,6 @@ class PlayerItemFragment : Fragment() {
 
     private var columnCount = 1
 
-    private var listener: OnListFragmentInteractionListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,7 +42,7 @@ class PlayerItemFragment : Fragment() {
         val listOfHlsVideos = resources.getStringArray(R.array.hls_videos_list).toList()
 
         val recyclerView = view.findViewById<RecyclerView>(R.id.list)
-        val adapter = MyPlayerItemRecyclerViewAdapter(context!!, listOfHlsVideos, listener)
+        val adapter = MyPlayerItemRecyclerViewAdapter(context!!, listOfHlsVideos)
         recyclerView.hasFixedSize()
         val linearLayoutManager = LinearLayoutManager(context)
         recyclerView.layoutManager = linearLayoutManager
@@ -67,21 +66,6 @@ class PlayerItemFragment : Fragment() {
     }
 
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        if (context is OnListFragmentInteractionListener) {
-            Log.d("QWERTYIOP", "11111")
-            listener = context
-        } else {
-            throw RuntimeException("$context must implement OnListFragmentInteractionListener")
-        }
-    }
-
-    override fun onDetach() {
-        super.onDetach()
-        listener = null
-    }
-
     /**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated
@@ -93,10 +77,6 @@ class PlayerItemFragment : Fragment() {
      * [Communicating with Other Fragments](http://developer.android.com/training/basics/fragments/communicating.html)
      * for more information.
      */
-    interface OnListFragmentInteractionListener {
-        fun onListFragmentInteraction(playerView: PlayerView)
-    }
-
     companion object {
 
         const val ARG_COLUMN_COUNT = "column-count"

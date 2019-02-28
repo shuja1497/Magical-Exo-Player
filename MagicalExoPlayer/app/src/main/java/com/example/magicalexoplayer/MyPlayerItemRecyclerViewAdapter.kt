@@ -3,14 +3,12 @@ package com.example.magicalexoplayer
 import android.content.Context
 import android.net.Uri
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import android.widget.Toast
 
 
-import com.example.magicalexoplayer.PlayerItemFragment.OnListFragmentInteractionListener
 import com.google.android.exoplayer2.DefaultLoadControl
 import com.google.android.exoplayer2.DefaultRenderersFactory
 import com.google.android.exoplayer2.ExoPlayerFactory
@@ -32,9 +30,8 @@ import kotlinx.android.synthetic.main.fragment_player_item.view.*
  */
 class MyPlayerItemRecyclerViewAdapter(
     private val context: Context,
-    private val mValues: List<String>,
-    private val mListener: OnListFragmentInteractionListener?
-) : RecyclerView.Adapter<MyPlayerItemRecyclerViewAdapter.ViewHolder>() {
+    private val mValues: List<String>)
+    : RecyclerView.Adapter<MyPlayerItemRecyclerViewAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -45,11 +42,6 @@ class MyPlayerItemRecyclerViewAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
         holder.bindVideos(mValues[position])
-
-        holder.playerView.setOnClickListener {
-            Log.d("QWERTYIOP", "22222")
-            mListener!!.onListFragmentInteraction(holder.playerView)
-        }
     }
 
     var currentPosition = 0
@@ -62,16 +54,24 @@ class MyPlayerItemRecyclerViewAdapter(
 
     override fun getItemCount(): Int = mValues.size
 
-    inner class ViewHolder(val mView: View) : RecyclerView.ViewHolder(mView) {
+    inner class ViewHolder(val mView: View) : RecyclerView.ViewHolder(mView), View.OnClickListener {
 
+        init {
+            mView.setOnClickListener(this)
+        }
         val playerView : PlayerView = mView.findViewById(R.id.video_view)
         private val BANDWIDTH_METER = DefaultBandwidthMeter()
         private var player: SimpleExoPlayer? = null
 
 
         fun bindVideos(hslUrl : String){
-            Log.d("QWERTYIOP", "33333")
             initializePlayer(hslUrl)
+        }
+
+        override fun onClick(v: View?) {
+
+            Toast.makeText(context, playerView.player.contentPosition.toString(), Toast.LENGTH_LONG).show()
+            Toast.makeText(context, mValues[adapterPosition], Toast.LENGTH_LONG).show()
         }
 
         private fun initializePlayer(url: String) {

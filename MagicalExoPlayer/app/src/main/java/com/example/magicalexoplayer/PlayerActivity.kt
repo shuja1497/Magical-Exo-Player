@@ -20,7 +20,7 @@ import com.google.android.exoplayer2.upstream.DataSource
 import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory
 
 
-class PlayerActivity : AppCompatActivity(), PlayerItemFragment.OnListFragmentInteractionListener {
+class PlayerActivity : AppCompatActivity(){
 
     // bandwidth meter to measure and estimate bandwidth
     private val BANDWIDTH_METER = DefaultBandwidthMeter()
@@ -43,13 +43,6 @@ class PlayerActivity : AppCompatActivity(), PlayerItemFragment.OnListFragmentInt
         fragmentTransaction.commit()
 
 //        playerView = findViewById(R.id.video_view)
-    }
-
-    override fun onListFragmentInteraction(playerView: PlayerView) {
-        Log.d("QWERTYIOP", "444444")
-
-        Toast.makeText(this, playerView.player.contentPosition.toString(), Toast.LENGTH_LONG).show()
-
     }
 
 //    private fun initializePlayer() {
