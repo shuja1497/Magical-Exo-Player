@@ -1,8 +1,10 @@
 package com.example.magicalexoplayer
 
 import android.content.Context
+import android.content.Intent
 import android.net.Uri
 import android.support.v7.widget.RecyclerView
+import android.telecom.Call
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -44,13 +46,6 @@ class MyPlayerItemRecyclerViewAdapter(
         holder.bindVideos(mValues[position])
     }
 
-    var currentPosition = 0
-
-    fun startPLayerView(position: Int){
-
-        currentPosition = position
-
-    }
 
     override fun getItemCount(): Int = mValues.size
 
@@ -70,8 +65,12 @@ class MyPlayerItemRecyclerViewAdapter(
 
         override fun onClick(v: View?) {
 
-            Toast.makeText(context, playerView.player.contentPosition.toString(), Toast.LENGTH_LONG).show()
-            Toast.makeText(context, mValues[adapterPosition], Toast.LENGTH_LONG).show()
+            val intent  = Intent(context, DetailsVideoActivity::class.java)
+            intent.putExtra("PLAYBACK_POSITION",player?.currentPosition)
+            intent.putExtra("CURRENT_WINDOW_INDEX",player?.currentWindowIndex)
+            intent.putExtra("HLS_URL", mValues[adapterPosition])
+
+            context.startActivity(intent)
         }
 
         private fun initializePlayer(url: String) {
