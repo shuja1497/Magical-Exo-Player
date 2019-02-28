@@ -1,21 +1,21 @@
 <resources>
     <string name="app_name">MagicalExoPlayer</string>
-    <string name="media_url_hls">https://bitdash-a.akamaihd.net/content/MI201109210084_1/m3u8s/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.m3u8</string>
+    <string name="media_url_hls_demo">https://bitdash-a.akamaihd.net/content/MI201109210084_1/m3u8s/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.m3u8</string>
     <string name="media_url_hls_1">https://player.vimeo.com/external/286837767.m3u8?s=42570e8c4a91b98cdec7e7bfdf0eccf54e700b69</string>
-    <string name="media_url_hls_2">https://player.vimeo.com/external/286837767.m3u8?s=42570e8c4a91b98cdec7e7bfdf0eccf54e700b69</string>
-    <string name="media_url_hls_3">https://player.vimeo.com/external/286837767.m3u8?s=42570e8c4a91b98cdec7e7bfdf0eccf54e700b69</string>
-    <string name="media_url_hls_4">https://player.vimeo.com/external/286837767.m3u8?s=42570e8c4a91b98cdec7e7bfdf0eccf54e700b69</string>
-    <string name="media_url_hls_5">https://player.vimeo.com/external/286837767.m3u8?s=42570e8c4a91b98cdec7e7bfdf0eccf54e700b69</string>
-    <string name="media_url_hls_6">https://player.vimeo.com/external/286837767.m3u8?s=42570e8c4a91b98cdec7e7bfdf0eccf54e700b69</string>
+    <string name="media_url_hls_2">https://player.vimeo.com/external/286837810.m3u8?s=610b4fee49a71c2dbf22c01752372ff1c6459b9e</string>
+    <string name="media_url_hls_3">https://player.vimeo.com/external/286837723.m3u8?s=3df60d3c1c6c7a11df4047af99c5e05cc2e7ae96</string>
+    <string name="media_url_hls_4">https://player.vimeo.com/external/286837649.m3u8?s=9e486e9b932be72a8875afc6eaae21bab124a35a</string>
+    <string name="media_url_hls_5">https://player.vimeo.com/external/286837529.m3u8?s=20f83af6ea8fbfc8ce0c2001f32bf037f8b0f65f</string>
+    <string name="media_url_hls_6">https://player.vimeo.com/external/286837402.m3u8?s=7e01c398e2f01c29ecbd46e5e2dd53e0d6c1905d</string>
 
 
     <string-array name="hls_videos_list">
-        <item>@string/media_url_hls</item>
-        <item>@string/media_url_hls</item>
-        <item>@string/media_url_hls</item>
-        <item>@string/media_url_hls</item>
-        <item>@string/media_url_hls</item>
-        <item>@string/media_url_hls</item>
+        <item>@string/media_url_hls_1</item>
+        <item>@string/media_url_hls_2</item>
+        <item>@string/media_url_hls_3</item>
+        <item>@string/media_url_hls_4</item>
+        <item>@string/media_url_hls_5</item>
+        <item>@string/media_url_hls_6</item>
     </string-array>
 
 </resources>

@@ -44,7 +44,7 @@ class MyPlayerItemRecyclerViewAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-        holder.bindVideos(mValues[currentPosition])
+        holder.bindVideos(mValues[position])
 
         holder.playerView.setOnClickListener {
             Log.d("QWERTYIOP", "22222")

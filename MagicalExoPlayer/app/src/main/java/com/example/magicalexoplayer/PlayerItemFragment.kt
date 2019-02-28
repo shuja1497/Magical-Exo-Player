@@ -55,9 +55,9 @@ class PlayerItemFragment : Fragment() {
             fun onScrolled(recyclerView: RecyclerView?, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
 
-                if(recyclerView?.layoutManager == linearLayoutManager) {
-                    adapter.startPLayerView(linearLayoutManager.findFirstVisibleItemPosition())
-                }
+//                if(recyclerView?.layoutManager == linearLayoutManager) {
+//                    adapter.startPLayerView(linearLayoutManager.findFirstVisibleItemPosition())
+//                }
 
             }
         })
